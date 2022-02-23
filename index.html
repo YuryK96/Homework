@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style/style.css">
+
+    <style id="style">
+
+    
+
+    </style>
+
+
+</head>
+<body>
+
+    <h1>Создать меню</h1>
+
+    
+    <p>Пункты меню:<input type="text" id="Menu" value="Главная, О компании, Новости"></p>  
+    <p>Цвет текста:<input type="color" id="ColorText" value="#FAFAFA"></p>  
+    <p>Цвет фона:<input type="color" id="ColorBg" value="#00B0BD"></p>  
+    <p>Пункты hover:<input type="color" id="ColorHov" value="#BA7617"></p>
+    <button onclick="createMenu(Menu.value, ColorText.value, ColorBg.value, ColorHov.value)">Создать меню</button>  
+
+<div class="wrap"  >
+
+    <div class="Panel_Menu" id="CreateMenu0"></div>
+    <div class="Panel_Menu" id="CreateMenu1"></div>
+    <div class="Panel_Menu" id="CreateMenu2"></div>
+
+</div>
+
+<div id="img"></div>
+
+    <script>
+
+
+
+
+        function createMenu(Menu, ColorText, ColorBg, ColorHov) {
+
+            
+
+
+             arrMenu = Menu.split(", ");
+           
+            if (arrMenu[0] != undefined ) { 
+                Menu0 = `<div style ="color: ${ColorText};  background: ${ColorBg}; padding: 15px 5px;  " ><a href="#" onclick ="createImg()" >${arrMenu[0]}</a></div>`
+                CreateMenu0.innerHTML = Menu0;
+                hover = `a:hover  {color: ${ColorHov}};`
+                style.innerHTML = hover ;
+            }
+
+            if (arrMenu[1] != undefined ) { 
+                Menu1 = `<div style ="color: ${ColorText}; background: ${ColorBg}; padding: 15px 5px;  " ><a href="#" onclick ="createImg()">${arrMenu[1]}</a></div>`
+                CreateMenu1.innerHTML = Menu1;
+                hover = `a:hover {color: ${ColorHov}};`
+                style.innerHTML = hover ;
+            }
+
+
+            if (arrMenu[2] != undefined ) { 
+                Menu2 = `<div style ="color: ${ColorText}; background: ${ColorBg}; padding: 15px 5px;  " ><a href="#" onclick ="createImg()">${arrMenu[2]}</a></div>`
+                CreateMenu2.innerHTML = Menu2;
+                hover = `a:hover {color: ${ColorHov}};`
+                style.innerHTML = hover ;
+            }
+
+        }
+    
+        function createImg () {
+
+             let randomN = Math.floor(Math.random() * 10) + 1;
+            
+            let imag = `<img src="images/${randomN}.jpg" >`
+
+            img.innerHTML = imag;
+        }
+
+
+        
+
+    </script>
+    
+
+
+
+
+
+    
+</body>
+</html>
