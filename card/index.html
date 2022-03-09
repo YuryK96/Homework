@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="cards">
+
+        <div class="card">
+            <div id="poster" class="poster">
+
+            </div>
+            <div id="title" class="title">
+
+            </div>
+            <div id="price" class="price">
+
+            </div>
+
+
+
+            <div class="review_stars_wrap">
+                <div id="review_stars">
+              
+                </div>
+            </div>
+
+            <div id="button" class="button">
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let card = {
+
+            title: "<div>Тайная жизнь</div>",
+            sub_title: "<div>домашних животных 2</div>",
+            price: `<div>45,00 `,
+            currency: "руб.",
+            ceil_price: "<div>50,00 ",
+            price_close: "</div>" ,
+            poster: `<img class="pic1" src="images/poster.png" alt="">`,
+            type: `<img class="pic2" src="images/blue-ray.png" alt="">`,
+            discount: `<div class ="discount"><img class="pic3" src="images/Акция.png" alt=""></div>`,
+            stars: 3,
+            rait: [`<input id="star-4" type="radio" name="stars"  />
+                    <label title="Отлично" for="star-4"  >
+                        <span class="material-icons">star</span>
+                    </label >`, `<input id="star-3" type="radio" name="stars"  />
+                    <label title="Хорошо" for="star-3">
+                        <span class="material-icons">star</span>
+                    </label>`, `<input id="star-2" type="radio" name="stars" />
+                    <label title="Нормально" for="star-2">
+                        <span class="material-icons">star</span>
+                    </label>`, ` <input id="star_1" type="radio" name="stars" />
+                    <label title="Плохо" for="star_1">
+                        <span class="material-icons">star</span>
+                    </label>`, `<input id="star-0" type="radio" name="stars" />
+                    <label title="Ужасно" for="star-0">
+                        <span class="material-icons">star</span>
+                    </label>`],
+
+            button: `<div class="img"><a href="#"><img src="images/buy.png" alt=""></a></div>`
+
+        }
+
+        title.innerHTML = card.title + card.sub_title
+
+        poster.innerHTML = card.poster
+
+        button.innerHTML = card.button
+
+        if (true) {
+            price.innerHTML = (card.price + card.currency + card.price_close) + (card.ceil_price + card.currency + card.price_close)
+            poster.innerHTML += card.discount
+        }
+        else { price.innerHTML = (card.ceil_price + card.currency + card.price_close) }
+
+        poster.innerHTML += card.type
+
+
+      
+
+        if (card.stars == 4) {
+            card.rait[0] = `<input id="star-4" type="radio" name="stars" checked="checked" />
+                    <label title="Отлично" for="star-4"  >
+                        <span class="material-icons">star</span>
+                    </label >` }
+
+
+        else if (card.stars == 3) {
+            card.rait[1] = `<input id="star-3" type="radio" name="stars" checked="checked" />
+                    <label title="Хорошо" for="star-3">
+                        <span class="material-icons">star</span>
+                    </label>`}
+
+        else if (card.stars == 2) {
+            card.rait[2] = `<input id="star-2" type="radio" name="stars" checked="checked" />
+                    <label title="Хорошо" for="star-2">
+                        <span class="material-icons">star</span>
+                    </label>`}
+
+        else if (card.stars == 1) {
+            card.rait[3] = `<input id="star-1" type="radio" name="stars" checked="checked" />
+                    <label title="Хорошо" for="star-1">
+                        <span class="material-icons">star</span>
+                    </label>`}
+
+
+        else if (card.stars == 0) {
+            card.rait[4] = `<input id="star-0" type="radio" name="stars" checked="checked" />
+                    <label title="Хорошо" for="star-0">
+                        <span class="material-icons">star</span>
+                    </label>`}
+
+
+
+
+        for (i = 0; i < card.rait.length; i++) {
+            review_stars.innerHTML += card.rait[i]
+        }
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
