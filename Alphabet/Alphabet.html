@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <article>
+        <p>Alphabet</p>
+        <section>
+            <p> A B C D E F G </p>
+            <p>come on out and play with me.</p>
+            <p>H I J </p>
+            <p>come and play.</p>
+            <p>K L M </p>
+            <p>come with them. </p>
+            <p>N O P </p>
+            <p>near the tree. </p>
+            <p>Q R S T U V </p>
+            <p>Oh, how happy we will be. </p>
+            <p>W X Y Z </p>
+            <p>Lot's of fun for you and me. </p>
+        </section>
+         <div id="div"></div>
+    </article>
+    <button onclick="change()">Press me</button>
+
+
+    <script>
+        let lastP = "asdads"
+        let c = "";
+        function change () {
+
+            let arrP = document.querySelectorAll("p:nth-child(odd)");
+
+           for (i=1; i<arrP.length; i++){
+                
+                div.innerHTML += arrP[i].innerHTML;
+           }
+         
+           let arrB = document.getElementsByTagName("p");
+            
+           for (i=1; i<arrB.length; i++){
+                arrB[i].style.color = "white"
+                arrB[i].style.border = "1px solid red"
+                arrB[i].style.fontSize = "20px"
+                arrB[i].style.background = "gray"
+            i++
+           }
+
+           for (i=2; i<arrB.length; i++){
+                arrB[i].style.color = "gold"
+                arrB[i].style.border = "1px solid black"
+                arrB[i].style.fontSize = "20px"
+                arrB[i].style.background = "green"
+            i++
+           }
+           
+        } 
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
