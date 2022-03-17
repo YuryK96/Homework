@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        section {
+            width: 550px;
+            height: 400px;
+            margin: auto;
+            transition: .3s;
+            /* border: 1px solid green;  */
+
+        }
+
+        div a {
+            text-decoration: none;
+            transition: .3s;
+            color: rgb(75, 22, 19)
+        }
+
+        div a:hover {
+            color: aquamarine;
+
+        }
+
+        .back {
+
+            background: rgba(100, 92, 92, 0.349);
+            width: 550px;
+            height: 100px;
+            position: relative;
+            bottom: 250px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            padding: 5px 0 0 25px;
+        }
+
+        .description {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            padding: 12px 25px 0 25px;
+        }
+
+        section:hover {
+            filter: brightness(80%);
+        }
+
+        .arrow {
+            /* border: 1px solid green; */
+            width: 70px;
+            position: relative;
+        }
+
+        .material-icons {
+            font-size: 70px;
+            color: #fff;
+            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px crimson, 0 0 35px crimson, 0 0 40px crimson, 0 0 50px crimson, 0 0 75px crimson;
+            cursor: pointer;
+            transition: .6s;
+        }
+
+        .material-icons:hover {
+            color: aqua;
+        }
+
+        #prev {
+            top: -250px;
+        }
+
+        #next {
+            top: -326px;
+            left: 478px;
+        }
+
+        .wrap {
+            position: relative;
+            bottom: 630px;
+            left: 20px;
+            
+        }
+
+        #site {
+            border: 1px solid white;
+            color: white;
+            padding: 5px;
+            font-weight: 700;
+        }
+    </style>
+
+</head>
+
+<body onload="timerId=setTimeout(change,2000)">
+
+    <section onmouseover="stop()" onmouseout="timerId=setTimeout(change,2000)">
+        <a id="lnk" href="https://www.google.com/"><img id="p1" src="../images/img1b.jpg" alt=""></a>
+
+        <div class="arrow" id="prev" onclick="before()"><span class="material-icons">
+                navigate_before
+            </span></div>
+        <div class="arrow" id="next" onclick="forward()"><span class="material-icons">
+                navigate_next
+            </span></div>
+
+        <div class="back">
+
+            <div id="titleNumber" class="title">Заголовок слайда 1</div>
+
+            <div id="desc" class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="https://www.google.com/">google.com</a> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+
+
+        </div>
+
+        <div class="wrap" ><a id="site" href="https://www.google.com/">google.com</a></div>
+
+    </section>
+
+
+
+
+
+    <script>
+        let id = 1, p = 6;
+        to = ['https://www.google.com/', 'https://yandex.by/', 'https://mail.ru/', 'https://ok.ru/', 'https://duckduckgo.com/', 'https://github.com/'];
+
+        description = [`Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="https://www.google.com/">google.com</a> Lorem ipsum dolor sit amet consectetur adipisicing elit.`, `Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="https://yandex.by/">yandex.by</a> Lorem ipsum dolor sit amet consectetur adipisicing elit.`, `Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="https://mail.ru/">mail.ru</a> Lorem ipsum dolor sit amet consectetur adipisicing elit.`, `Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="https://ok.ru/">ok.ru</a> Lorem ipsum dolor sit amet consectetur adipisicing elit.`, `Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="https://duckduckgo.com/">duckduckgo.com</a> Lorem ipsum dolor sit amet consectetur adipisicing elit.`, `Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="https://github.com/">github.com</a> Lorem ipsum dolor sit amet consectetur adipisicing elit.`]
+
+         
+        siteup1 = to[0].slice(12, 22)
+        siteup2 = to[1].slice(8, 21)
+        siteup3 = to[2].slice(8, 15)
+        siteup4 = to[3].slice(8, 13)
+        siteup5 = to[4].slice(8, 22)
+        siteup6 = to[5].slice(8, 18)
+
+        siteupall = [siteup1, siteup2, siteup3, siteup4, siteup5, siteup6]
+
+        function before() {
+            if (id > 1) id--; else id = p;
+            p1.src = `../images/img${id}b.jpg`;
+            lnk.href = to[id - 1];
+            site.href = to[id - 1];
+            desc.innerHTML = description[id - 1];
+            site.innerHTML = siteupall[id - 1];
+            titleNumber.innerHTML = "Заголовок слайда: " + id;
+            console.log(id);
+        }
+
+        function forward() {
+            if (id >= p) id = 1; else id++;
+            p1.src = `../images/img${id}b.jpg`;
+            lnk.href = to[id - 1];
+            site.href = to[id - 1];
+            desc.innerHTML = description[id - 1];
+            site.innerHTML = siteupall[id - 1];
+            titleNumber.innerHTML = "Заголовок слайда: " + id;
+        }
+
+        function change() {
+            if (++id > p) id = 1;
+            p1.src = `../images/img${id}b.jpg`;
+            lnk.href = to[id - 1];
+            site.href = to[id - 1];
+            site.innerHTML = siteupall[id - 1];
+            desc.innerHTML = description[id - 1];
+            titleNumber.innerHTML = "Заголовок слайда: " + id;           
+            timerId = setTimeout(change, 2000);
+        }
+
+        function stop() {
+            clearTimeout(timerId);
+        }
+
+   
+        
+    </script>
+
+
+</body>
+
+</html>
