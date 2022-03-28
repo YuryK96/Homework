@@ -1,0 +1,22 @@
+body {
+    width: 1000px;
+    margin: auto;
+    /* border: 1px solid brown; */
+}
+
+#picturesHere {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bigPicture {
+    margin-top: 15px;
+}
+
+#bigPicture p {
+   font-size: 18pt;
+   text-align: center;
+   color: #333; 
+} 
+
+img { cursor: pointer; }

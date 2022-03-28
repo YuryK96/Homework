@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        div  {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+
+        }
+        div p {
+        
+            position: absolute;
+            transform: translateY(-400px);
+            
+            
+        }
+
+        img {
+
+
+            position: relative;
+
+        }
+    </style>
+
+</head>
+
+<body onload="drawPic()">
+
+    <section id="picturesHere">
+        <!-- <div>
+        <img src="images/red.jpg" alt="" width="300">
+        <p><a href="#">Костел</a></p>
+    </div> -->
+    </section>
+    <section id="bigPicture">
+        <!-- <img src="images/red.jpg" width="1000" alt="">
+<p>Подпись</p> -->
+    </section>
+
+    <script>
+
+        let gallery = [
+            {
+                fname: "red.jpg",
+                w: "300",
+                title: "Красный костел",
+                link: "https://msj.by/katolicheskie-xramy/krasnyj-kostel-v-minske/",
+                description: "В храме святого Симеона и святой Елены находится полномасштабная копия Туринской Плащаницы."
+            },
+            {
+                fname: "troi.jpg",
+                w: "300",
+                title: "Троицкое предместье",
+                link: "https://vetliva.ru/belarus/what-to-see/troitskoe-predmeste-v-minske/",
+                description: "Троицкое предместье — исторический район города Минска, расположенный в северо-восточной части исторического центра на левом берегу реки Свислочь."
+            },
+            {
+                fname: "mir.jpg",
+                w: "300",
+                title: "Мирский замок",
+                link: "https://mirzamak.by/",
+                description: "Построенный в начале XVI в. магнатом Ю. И. Ильиничем замок стал первым частнособственническим замком на землях Беларуси"
+            }
+        ];
+
+
+        function drawPic() {
+            let s = "";
+            let s1 = "";
+            for (i = 0; i < gallery.length; i++) {
+                s1 += `
+                  <img src="images/${gallery[i].fname}" alt="" width="${gallery[i].w}" onclick="showPic('${gallery[i].fname}','${gallery[i].description}')">
+                `
+            }
+
+            for (i = 0; i < gallery.length; i++) {
+
+                s += `
+        <div id ="dN${i}" onmouseover="timerId=setTimeout(func${i},500)">
+            ${s1}
+          <p><a href="${gallery[i].link}">${gallery[i].title}</a></p>
+        </div>
+        `;
+
+            }
+
+            picturesHere.innerHTML = s;
+
+            let find = document.querySelectorAll("#picturesHere p");
+            for (i = 0; i < find.length; i++) {
+                find[i].style = `
+                font-size: 20pt;
+                text-align: center;
+            `;
+            }
+            divpic1 = document.querySelectorAll("#dN0 img")
+            divpic2 = document.querySelectorAll("#dN1 img")
+            divpic3 = document.querySelectorAll("#dN2 img")
+
+         
+
+            let divN0 = document.getElementById('dN0')
+            let divN1 = document.getElementById('dN1')
+            let divN2 = document.getElementById('dN2')
+
+            divpic2[0].style = `
+            transform: translateY(200px);`
+            divpic2[1].style = `
+            transform: translateY(-204px);`
+
+
+            divpic3[0].style = `
+            transform: translateY(400px);`
+            divpic3[2].style = `
+            transform: translateY(-408px);`
+            
+            
+
+
+
+            divN0.addEventListener('mouseover', place1)
+            function place1() {
+                divpic1[1].style = `
+            transform: translate(300px, -204px);`
+            divpic1[2].style = `
+            transform: translate(600px, -407px);`
+            }
+
+          
+            divN1.addEventListener('mouseover', place2)
+            function place2() {
+                divpic2[0].style = `
+            transform: translate(600px, 0);`
+            divpic2[2].style = `
+            transform: translate(300px, -407px);`
+            }
+          
+            divN2.addEventListener('mouseover', place3)
+            function place3() {
+                divpic3[1].style = `
+            transform: translate(600px, -204px);`
+            divpic3[0].style = `
+            transform: translate(300px, 0);`
+            }
+          
+        }
+
+
+
+
+        j0 = 1; j1 = 1; j2 = 1;
+        function func0() {
+            divpic1[0].style.right = `${j0++}px`;
+            if (j0== 300) { j0=-600}
+            divpic1[1].style.right = `${j1++}px`;
+            if (j1== 600) { j1=-300}
+            divpic1[2].style.right = `${j2++}px`;
+            if (j2== 900) { j2=0}
+            timerId = setTimeout(func0, 30 )
+
+        }
+
+        k0 = 1; k1 = 1; k2 = 1;
+        function func1() {
+            divpic2[1].style.right = `${k0++}px`;
+            if (k0== 300) { k0=-600}
+            divpic2[2].style.right = `${k1++}px`;
+            if (k1== 600) { k1=-300}
+            divpic2[0].style.right = `${k2++}px`;
+            if (k2== 900) { k2=0}
+            timerId = setTimeout(func1, 30 )
+
+        }
+
+
+        l0 = 1; l1 = 1; l2 = 1;
+        function func2() {
+            divpic3[2].style.right = `${l0++}px`;
+            if (l0== 300) { l0=-600}
+            divpic3[0].style.right = `${l1++}px`;
+            if (l1== 600) { l1=-300}
+            divpic3[1].style.right = `${l2++}px`;
+            if (l2== 900) { l2=0}
+            timerId = setTimeout(func2, 30 )
+
+        }
+
+
+
+
+
+
+        function showPic(f, d) {
+            bigPicture.innerHTML = `
+    <img src="images/${f}" width="1000" alt="" onclick="bigPicture.innerHTML=''">
+    <p>${d}</p> 
+    `;
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>
