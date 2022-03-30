@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onclick="eve(event)">
+    
+<img src="world.gif" alt="">
+
+
+<script>
+
+    function eve(e) {
+        if ( e.pageX >= 610 && e.pageX <= 710 && e.pageY >= 241 && e.pageY <= 259) { 
+            window.open("Ny.html",null,"width=1280,height=848")
+        }
+        if ( e.pageX >= 900 && e.pageX <= 1000 && e.pageY >= 176 && e.pageY <= 195) { 
+            window.open("Tokyo.html",null,"width=1280,height=848")
+        }
+
+        if ( e.pageX >= 1685 && e.pageX <= 1785 && e.pageY >= 274 && e.pageY <= 291) { 
+            window.open("London.html",null,"width=1280,height=848")
+        }
+
+    }
+  
+
+</script>
+
+</body>
+</html>
