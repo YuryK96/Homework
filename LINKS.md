@@ -1,5 +1,4 @@
 # Studying
-Studying
 		
 https://yuryk96.github.io/Studying/index.html
 			
