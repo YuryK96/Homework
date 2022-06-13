@@ -146,7 +146,7 @@
 
         function before() {
             if (id > 1) id--; else id = p;
-            p1.src = `../images/img${id}b.jpg`;
+            p1.src = `/images/img${id}b.jpg`;
             lnk.href = to[id - 1];
             site.href = to[id - 1];
             desc.innerHTML = description[id - 1];
@@ -157,7 +157,7 @@
 
         function forward() {
             if (id >= p) id = 1; else id++;
-            p1.src = `../images/img${id}b.jpg`;
+            p1.src = `/images/img${id}b.jpg`;
             lnk.href = to[id - 1];
             site.href = to[id - 1];
             desc.innerHTML = description[id - 1];
@@ -167,7 +167,7 @@
 
         function change() {
             if (++id > p) id = 1;
-            p1.src = `../images/img${id}b.jpg`;
+            p1.src = `/images/img${id}b.jpg`;
             lnk.href = to[id - 1];
             site.href = to[id - 1];
             site.innerHTML = siteupall[id - 1];
