@@ -12,5 +12,6 @@ https://yuryk96.github.io/Studying/gallery/index2.html
 https://yuryk96.github.io/Studying/menu/index.html
 https://yuryk96.github.io/Studying/slider/index.html
 https://yuryk96.github.io/Studying/table/index.html
+https://yuryk96.github.io/Studying/table/colors.html
 https://yuryk96.github.io/Studying/world/index.html
 
