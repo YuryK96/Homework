@@ -3,7 +3,7 @@
 
 let obj = {
 
-    img: ["images/minsk1.jpg", "images/minsk2.jpg", "images/mir.gif"],
+    img: ["../images/minsk1.jpg", "../images/minsk2.jpg", "../images/mir.gif"],
     name: ['Костел', 'Троицкое', 'Мир'],
     link: ['google.com', 'yandex.ru', 'mail.ru']
 
